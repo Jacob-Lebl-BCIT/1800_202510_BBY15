@@ -61,12 +61,10 @@ project-name/
 - **Your Name** - BCIT CST Student with a passion for creating user-friendly applications. Fun fact: Loves solving Rubik's Cubes in under a minute.
 - **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 
-<<<<<<< HEAD
-Calvin Chan - I have a small dog
-=======
-My name is Rodrigo Sanchez, i really love hamburgers and i love my cat named vela, im a big mario fan since 4 y/0
+
+- Calvin Chan - I have a small dog
+- My name is Rodrigo Sanchez, i really love hamburgers and i love my cat named vela, im a big mario fan since 4 y/0
 - Jacob Lebl, I have two cats, I played guitar, and I won second place in a marksmanship competition a few years ago!
->>>>>>> 56fd105f253a660280b25079e302bf5fedd5bf2f
 
 ---
 
