@@ -62,6 +62,7 @@ project-name/
 - **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 
 My name is Rodrigo Sanchez, i really love hamburgers and i love my cat named vela, im a big mario fan since 4 y/0
+- Jacob Lebl, I have two cats, I played guitar, and I won second place in a marksmanship competition a few years ago!
 
 ---
 
