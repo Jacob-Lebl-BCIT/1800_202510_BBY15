@@ -33,37 +33,57 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a href="#" class="navbar-brand">Notify</a>
-            <form class="d-flex">
+            <!-- <form class="d-flex">
                 <input type="text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button type="button" class="btn btn-outline-success">
-                    Search
-                </button>
-            </form>
+            </form> -->
+            <button type="button" class="navbar-toggler py-2" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                Nav
+            </button>
 
+
+            <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-body">
+                    <div class="offcanvas-header rounded-2 mb-4">
+                        <h4 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Navbar</h4>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <ul class="navbar-nav gap-3">
+                        <li class="nav-item container bg-light rounded-2">
+                            <a href="#" class="nav-link-active" aria-current="page">Item!</a></li>
+                        <li class="nav-item container bg-light rounded-2">
+                            <a href="#" class="nav-link-active" aria-current="page">Item!</a></li>
+                        <li class="nav-item container bg-light rounded-2">
+                            <a href="#" class="nav-link-active" aria-current="page">Item!</a></li>
+                        <li class="nav-item container bg-light rounded-2">
+                            <a href="#" class="nav-link-active" aria-current="page">Item!</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
 
     <main class="bg-light">
-    <!-- Centered hero -->
-    <div class="px-4 py-5 text-center">
-        <h1 class="display-5 fw-bold">Hello!</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Click the plus icon to get started with a new note! 
-            </p>
+        <!-- Centered hero -->
+        <div class="px-4 py-5 text-center">
+            <h1 class="display-5 fw-bold">Hello!</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Click the plus icon to get started with a new note!
+                </p>
+            </div>
         </div>
-    </div>
 
-    <!-- Button -->
+        <!-- Button -->
 
-    <div class="sticky-bottom justify-content-end d-flex p-4">
-        <button type="button" class="btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
-                class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
-                <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
-            </svg>
-        </button>
-    </div>
+        <div class="sticky-bottom justify-content-end d-flex p-3">
+            <button type="button" class="btn p-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
+                    class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                </svg>
+            </button>
+        </div>
 
     </main>
 
@@ -84,7 +104,7 @@
                 <a href="#" class="card-link link-info">Settings</a>
             </div>
         </div>
-        
+
     </footer>
 
 
