@@ -24,7 +24,7 @@
 
 </head>
 
-<body>
+<body class="bg-dark">
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -43,16 +43,19 @@
         </div>
     </nav>
 
+    <main class="bg-light">
     <!-- Centered hero -->
-    <div class="px-4 py-5 my-1 text-center">
+    <div class="px-4 py-5 text-center">
         <h1 class="display-5 fw-bold">Hello!</h1>
         <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Click the plus icon to get started with a new note!
+            <p class="lead mb-4">Click the plus icon to get started with a new note! 
             </p>
         </div>
     </div>
 
-    <div class="sticky-bottom  justify-content-end d-flex m-4">
+    <!-- Button -->
+
+    <div class="sticky-bottom justify-content-end d-flex p-4">
         <button type="button" class="btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
                 class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
@@ -62,7 +65,9 @@
         </button>
     </div>
 
-    <footer class="footer p-4 py-md-3 mt-4 bg-dark d-flex gap-3">
+    </main>
+
+    <footer class="footer p-4 py-3 bg-dark d-flex gap-3">
         <div class="card bg-secondary" style="width: 12rem;">
             <div class="card-body ">
                 <h5 class="card-title">Classes</h5>
@@ -81,6 +86,7 @@
         </div>
         
     </footer>
+
 
 
     <!-- Stuff for body goes here -->
