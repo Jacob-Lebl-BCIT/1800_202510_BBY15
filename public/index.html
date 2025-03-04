@@ -33,14 +33,10 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a href="index.html" class="navbar-brand">Notify</a>
-            <!-- <form class="d-flex">
-                <input type="text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form> -->
             <button type="button" class="navbar-toggler py-2" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 Nav
             </button>
-
 
             <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar">
                 <div class="offcanvas-body">
@@ -65,16 +61,78 @@
 
     <main class="bg-light">
         <!-- Centered hero -->
-        <div class="px-4 py-5 text-center">
-            <h1 class="display-5 fw-bold">Hello!</h1>
+        <div class="px-4 py-4 text-center">
+            <h2 class="display-6 fw-bold">Hello! (User)</h2>
             <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4">Click the plus icon to get started with a new note!
-                </p>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h1 class="display-5 px-5 fw-bold">Note to review...</h1>
+            <div class="px-5 py-4">
+                <div class="d-flex justify-content-center">
+                    <div class="card text-center" style="width: 50rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">COMP-1800</h5>
+                            <p class="card-text">Title placeholder</p>
+                            <a href="#" class="card-link">Click to reveal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Classes Section -->
+        <div class="px-5">
+            <h1 class="display-5 py-4 fw-bold">Upcoming Classes...</h1>
+
+            <div id="accordion" class="mb-4">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                1st January
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                2nd January
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                3rd January     
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Button -->
-
         <div class="sticky-bottom justify-content-end d-flex p-3">
             <button type="button" class="btn p-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
@@ -84,41 +142,14 @@
                 </svg>
             </button>
         </div>
-
     </main>
 
     <footer class="footer p-4 py-3 bg-dark d-flex gap-3">
-        <div class="card bg-secondary" style="width: 12rem;">
-            <div class="card-body ">
-                <h5 class="card-title">Classes</h5>
-                <h6 class="card-subtitle mb-2">Card subtitle</h6>
-                <a href="#" class="card-link link-info">Schedule</a>
-                <a href="#" class="card-link link-info">Notes</a>
-            </div>
-        </div>
-        <div class="card bg-secondary" style="width: 12rem;">
-            <div class="card-body ">
-                <h5 class="card-title">Account</h5>
-                <h6 class="card-subtitle mb-2">Card subtitle</h6>
-                <a href="#" class="card-link link-info">Overview</a>
-                <a href="#" class="card-link link-info">Settings</a>
-            </div>
-        </div>
-
+        <h1>hello</h1>
     </footer>
-
-
-
-    <!-- Stuff for body goes here -->
-
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
-
 </html>
