@@ -22,6 +22,9 @@ function doAll() {
                     .then(html => {
                         document.getElementById('navbar-items-placeholder').outerHTML = html;
                         console.log("html: " + html);
+
+                         // add event listener to logout button after the HTML is loaded
+                         document.getElementById("logout-button").addEventListener("click", logout);
                     })
                     .catch(error => {
                         console.error("Error loading navigation:", error);
@@ -59,12 +62,10 @@ function logout() {
     firebase.auth().signOut().then(() => {
         // Sign-out successful.
         console.log("logging out user");
+        window.location.reload();
         }).catch((error) => {
         // An error happened.
         console.log("error logging out user: " + error);
         });
 }
 
-
-// add event listener to logout button
-document.getElementById("logout-button").addEventListener("click", logout);
