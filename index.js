@@ -10,7 +10,6 @@ const fs = require("fs");
 // Static file serving
 app.use("/", express.static("./public"));
 app.use("/scripts", express.static("./scripts"));
-app.use("/pages", express.static("./public/pages"));
 
 // Route handler for login page
 app.get("/login", (req, res) => {
@@ -19,6 +18,4 @@ app.get("/login", (req, res) => {
 })
 
 // Start server on port 8000
-app.listen(8000, () => {
-    console.log("Server running on port 8000");
-});
+app.listen(8000);
