@@ -18,12 +18,11 @@
         crossorigin="anonymous"></script>
 
     <!-- Other libraries go here -->
-    <<link rel="stylesheet" href="../styles/evo-calendar.min.css">
-        <link rel="stylesheet" href="../styles/evo-calendar-midnight-blue.css">
-        <link rel="stylesheet" href="../styles/style-calendar.css">
+ 
 
-        <!-- Link to styles of your own -->
-        <link rel="stylesheet" href="./styles/style.css">
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/style-calendar.css">
 
 </head>
 
@@ -36,14 +35,10 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a href="../index.html" class="navbar-brand">Notify</a>
-            <!-- <form class="d-flex">
-                <input type="text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form> -->
             <button type="button" class="navbar-toggler py-2" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 Nav
             </button>
-
 
             <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar">
                 <div class="offcanvas-body">
@@ -72,31 +67,86 @@
     </nav>
 
     <main class="bg-light">
-        <!-- Centered hero -->
+    <!-- Centered hero -->
 
 
 
 
-        <!-- Button -->
+    <!-- Button -->
 
 
-        <!-- Stuff for body goes here -->
+    <!-- Stuff for body goes here -->
 
 
-        <!-- This is the whole calendar, yeah, im serious, but its going to change trough the week / Rodrigo -->
-        <div class="px-4 py-5 text-center">
-            <div id="calendar"></div>
+    <!-- This is the whole calendar, yeah, im serious, but its going to change trough the week / Rodrigo -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="calendar card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <i class="fas fa-angle-left prev btn btn-outline-secondary"></i>
+                            <div class="date h4 mb-0">December 2015</div>
+                            <i class="fas fa-angle-right next btn btn-outline-secondary"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="weekdays d-flex justify-content-between mb-3">
+                                <div>Sunday</div>
+                                <div>Monday</div>
+                                <div>Tuesday</div>
+                                <div>Wednesday</div>
+                                <div>Thursday</div>
+                                <div>Friday</div>
+                                <div>Saturday</div>
+                            </div>
+                            <div class="days d-flex flex-wrap"></div>
+                            <div class="goto-today d-flex justify-content-between mt-3">
+                                <div class="goto d-flex">
+                                    <input type="text" placeholder="mm/yyyy" class="date-input form-control me-2">
+                                    <button class="goto-btn btn btn-primary">Go</button>
+                                </div>
+                                <button class="today-btn btn btn-secondary">Today</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="right card">
+                        <div class="card-body">
+                            <div class="today-date d-flex justify-content-between align-items-center mb-4">
+                                <div class="event-day h3 mb-0">Wed</div>
+                                <div class="event-date text-muted">12th December 2022</div>
+                            </div>
+                            <div class="events"></div>
+                            <div class="add-event-wrapper card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <div class="title h5 mb-0">Add Event</div>
+                                    <i class="fas fa-times close btn btn-outline-danger"></i>
+                                </div>
+                                <div class="card-body">
+                                    <div class="add-event-input mb-3">
+                                        <input type="text" placeholder="Event Name" class="event-name form-control">
+                                    </div>
+                                    <div class="add-event-input mb-3">
+                                        <input type="text" placeholder="Event Time From" class="event-time-from form-control">
+                                    </div>
+                                    <div class="add-event-input mb-3">
+                                        <input type="text" placeholder="Event Time To" class="event-time-to form-control">
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="add-event-btn btn btn-primary w-100">Add Event</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-
-
-
-
     </main>
+
     <footer class="footer p-4 py-3 bg-dark d-flex gap-3">
         <div class="card bg-secondary" style="width: 12rem;">
-            <div class="card-body ">
+            <div class="card-body">
                 <h5 class="card-title">Classes</h5>
                 <h6 class="card-subtitle mb-2">Card subtitle</h6>
                 <a href="#" class="card-link link-info">Schedule</a>
@@ -104,26 +154,23 @@
             </div>
         </div>
         <div class="card bg-secondary" style="width: 12rem;">
-            <div class="card-body ">
+            <div class="card-body">
                 <h5 class="card-title">Account</h5>
                 <h6 class="card-subtitle mb-2">Card subtitle</h6>
                 <a href="#" class="card-link link-info">Overview</a>
                 <a href="#" class="card-link link-info">Settings</a>
             </div>
         </div>
-
     </footer>
+
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <script src="../scripts/evo-calendar.min.js"></script>
+    <!-- jQuery -->
+     <!-- This code below seems to be not useful for now... / Rodrigo -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script> -->
+
+    <!-- Custom JS -->
     <script src="../scripts/scripts-calendar.js"></script>
-
-
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
-
 </body>
-
 </html>
