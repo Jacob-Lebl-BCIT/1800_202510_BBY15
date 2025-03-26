@@ -1,3 +1,26 @@
+:root {
+  --primary: #E7DDBA;
+  --secondary: #A1683A;
+  --accent: #305252;
+  --dark: #373E40;
+}
+
+.primary {
+  background-color: var(--primary);
+}
+
+.secondary {
+  background-color: var(--secondary);
+}
+
+.accent {
+  background-color: var(--accent);
+}
+
+.dark {
+  background-color: var(--dark);
+}
+
 .row-striped:nth-of-type(odd){
     background-color: #efefef;
     border-left: 4px #000000 solid;
