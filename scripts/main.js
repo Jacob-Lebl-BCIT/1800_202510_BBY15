@@ -80,6 +80,15 @@ function insertNewNoteButton() {
 
 }
 
+// Function to fetch user notes from Firestore
+async function fetchUserNotes() {
+    const user = firebase.auth().currentUser;
+    if (user) {
+        const notesSnapshot = await db.collection("users").doc(user.uid).collection("notes").orderBy("timestamp", "desc").get();
+        return notesSnapshot.docs.map(doc => doc.data());
+    }
+    return [];
+}
 
 // display notes function
 function displayNotes() {
