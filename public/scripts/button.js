@@ -1,6 +1,10 @@
 /**
  * Creates a modal dialog for adding a new note using SweetAlert2 library
  * This function is triggered when the user clicks the associated button
+ * 
+ * @todo the "create note" request I think is sent from the client,
+ * the client should send the request to the server, and the server should
+ * handle the request and send it to the database -@Jacob-Lebl-BCIT
  */
 
 async function userClick() {
@@ -72,11 +76,11 @@ async function userClick() {
 
         try {
             // Create a new note in Firestore
-            const userId = user.uid;
+            const user = firebase.auth().currentUser;
             const timestamp = firebase.firestore.FieldValue.serverTimestamp();
             
-            // Add note to user's notes subcollection
-            await db.collection("users").doc(userId).collection("notes").add({
+            // Add note to user's notes subcollection with the document name as the title
+            await db.collection("users").doc(user.uid).collection("notes").doc(formValues.title).set({
                 title: formValues.title,
                 content: formValues.content,
                 timestamp: timestamp,

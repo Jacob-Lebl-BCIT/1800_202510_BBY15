@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 currentUser = db.collection("users").doc(user.uid); //global
-
+                console.log(currentUser);
                 // the following functions are always called when someone is logged in
 
                 insertNameFromFirestore();
@@ -75,6 +75,9 @@ function insertNewNoteButton() {
         });
 
 }
+
+
+
 
 
 

@@ -3,12 +3,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
   callbacks: {
-    // signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-    //   // User successfully signed in.
-    //   // Return type determines whether we continue the redirect automatically
-    //   // or whether we leave that to developer to handle.
-    //   return true;
-    // },
+
     signInSuccessWithAuthResult: function (authResult, redirectUrl) {
       // User successfully signed in.
       // Return type determines whether we continue the redirect automatically
@@ -22,20 +17,34 @@ var uiConfig = {
       // The Firestore rules must allow the user to write. 
       //------------------------------------------------------------------------------------------
       var user = authResult.user;                            // get the user object from the Firebase authentication database
-      if (authResult.additionalUserInfo.isNewUser) {         //if new user
-        db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
+      if (authResult.additionalUserInfo.isNewUser) {
+        // New user, initialize data
+        const userID = user.uid;
+
+        db.collection("users").doc(userID).set({         //write to firestore. We are using the UID for the ID in users collection
           name: user.displayName,                    //"users" collection
           email: user.email,                         //with authenticated user's ID (user.uid)
           country: "Canada",                      //optional default profile info      
-          school: "BCIT"                          //optional default profile info
+          school: "BCIT",                          //optional default profile info
+          notesInitialized: true,
         }).then(function () {
-          console.log("New user added to firestore");
-          window.location.assign("main.html");       //re-direct to main.html after signup
-        }).catch(function (error) {
+          // Create the notes subcollection by adding an empty document.
+          // This will create the collection
+          db.collection("users").doc(userID).collection("notes").doc("initialNote").set({ title: "Hello World!"});
+
+        
+        }).then(function () {
+          console.log("New user and notes subcollection added to firestore");
+          window.location.assign("/");
+        })
+        
+        
+        .catch(function (error) {
           console.log("Error adding new user: " + error);
         });
       } else {
-        return true;
+        return true; // Existing user true
+        
       }
       return false;
     },
@@ -64,5 +73,6 @@ var uiConfig = {
 };
 
 ui.start('#firebaseui-auth-container', uiConfig);
+
 
 
