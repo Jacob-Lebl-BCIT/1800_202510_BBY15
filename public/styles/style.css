@@ -34,3 +34,14 @@
   .row-striped {
       padding: 15px 0;
   }
+
+
+  .note-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .note-group .card{
+
+    max-width: 18pc;
+  }
