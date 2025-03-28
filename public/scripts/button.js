@@ -127,11 +127,11 @@ function displayUserNotes() {
     displayCardsDynamically("notes");
 }
 function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("noteCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
+    let cardTemplate = document.getElementById("noteCardTemplate");  
 
     db.collection(collection).get()   //the collection called "notes"
         .then(allNotes=> {
-            //var i = 1;  //Optional: if you want to have a unique ID for each hike
+            //var i = 1; 
             allNotes.forEach(doc => { //iterate thru each doc
                 var title = doc.data().title;       // get value of the "title" key
                 var details = doc.data().content;  // get value of the "content" key
