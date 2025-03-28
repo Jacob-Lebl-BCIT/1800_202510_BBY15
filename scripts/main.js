@@ -92,24 +92,36 @@ async function fetchUserNotes() {
 
 // display notes function
 function displayNotes() {
-    currentUser.get().then(userDoc => {
-        //currentUser.get() returns a promise with snapshot of the user document (firebase. firestore. QuerySnapshot < T > )
+    fetchUserNotes()
+        .then(notes => {
+            const notesContainer = document.getElementById("notes-container");
+            notesContainer.innerHTML = ""; // Clear existing notes
 
-        // get latest notes from user
-        // notes contain:
-        // lastModified
-        // timestamp
-        // title
-        // content
+            if (notes.length === 0) {
+                notesContainer.innerHTML = "<p>No notes available.</p>";
+                return;
+            }
 
-        return db.collection("notes").where("userId", "==", currentUser.id).orderBy("lastModified", "desc").get();
+            notes.forEach(note => {
+                const noteElement = document.createElement("div");
+                noteElement.className = "note";
+                noteElement.innerHTML = `
+                    <h3>${note.title}</h3>
+                    <p>${note.content}</p>
+                    <button class="delete-note-btn" data-note-id="${note.id}">Delete</button>
+                `;
+                notesContainer.appendChild(noteElement);
+            });
 
-
-    }).then(notes => {
-
-        console.log("Notes: ", notes.docs);
-
-    });
+            // Add event listeners to delete buttons
+            const deleteButtons = document.querySelectorAll(".delete-note-btn");
+            deleteButtons.forEach(button => {
+                button.addEventListener("click", deleteNote);
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching user notes:", error);
+        });
 }
 
 
