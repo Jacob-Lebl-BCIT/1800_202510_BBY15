@@ -1,3 +1,4 @@
+// will contain user id when logged in
 var currentUser;
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -5,6 +6,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     //Function that calls everything needed for the main page  
     function doAll() {
         firebase.auth().onAuthStateChanged(user => {
+            console.log("Auth state changed");
             if (user) {
                 currentUser = db.collection("users").doc(user.uid); //global
                 console.log(currentUser);
@@ -15,6 +17,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 insertNavBar();
 
                 insertNewNoteButton();
+
+                displayNotes();
 
             } else {
                 // No user is signed in.
@@ -77,7 +81,30 @@ function insertNewNoteButton() {
 }
 
 
+// display notes function
+function displayNotes() {
+    currentUser.get().then(userDoc => {
+        //currentUser.get() returns a promise with snapshot of the user document (firebase. firestore. QuerySnapshot < T > )
 
+        // get latest notes from user
+        // notes contain:
+        // lastModified
+        // timestamp
+        // title
+        // content
+
+        return db.collection("notes").where("userId", "==", currentUser.id).orderBy("lastModified", "desc").get();
+
+
+    }).then(notes => {
+
+        console.log("Notes: ", notes.docs);
+
+    });
+}
+
+
+loadNotes = new Promise((resolve, reject) => {});
 
 
 
