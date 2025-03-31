@@ -42,30 +42,61 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1pc;
+    row-gap: 1pc;
 }
-
-
-
-
 
 #notes-container button {
 
-/* Possible button adjustments:
-    background-color: var(--accent);
-    color: var(--primary);
-    border-radius: 5px;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px; */
-
     border: none;
 
+}
+
+
+/* TODO: change width for device type */
+.note {
+  width: 13pc;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: white;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+}
+
+.note:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.note-header {
+  background-color: var(--accent);
+  color: var(--primary);
+  padding: 0.5rem;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.note-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.note p {
+  padding: 0.5rem;
+  margin: 0;
+  color: var(--dark);
+}
+
+.note-footer {
+  padding: 0.5rem;
+  border-top: 1px solid var(--accent);
+  font-size: 0.8rem;
+  color: var(--secondary);
 }
 
 /* Native Popover Styles */
 .note-popover {
-    background-color: var(--primary);
+    background-color: white;
     border: 2px solid var(--accent);
     border-radius: 8px;
     padding: 0;
