@@ -104,19 +104,19 @@ function displayNotes() {
 
             notes.forEach(note => {
                 const noteElement = document.createElement("div");
-                noteElement.className = "note";
+                noteElement.className = "note card px-3 py-3 mb-3";
                 noteElement.innerHTML = `
                     <h3>${note.title}</h3>
                     <p>${note.content}</p>
-                    <button class="delete-note-btn" data-note-id="${note.id}">Delete</button>
+                    <button class="details-note-btn" data-note-id="${note.id}">Details</button>
                 `;
                 notesContainer.appendChild(noteElement);
             });
 
-            // Add event listeners to delete buttons
-            const deleteButtons = document.querySelectorAll(".delete-note-btn");
+            // Add event listeners to open details for each note
+            const deleteButtons = document.querySelectorAll(".details-note-btn");
             deleteButtons.forEach(button => {
-                button.addEventListener("click", deleteNote);
+                button.addEventListener("click", openDetails);
             });
         })
         .catch(error => {
