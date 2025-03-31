@@ -78,8 +78,20 @@
 
           <div class="px-5" id="notes-container"></div>
 
-          <button popovertarget="mypopover">toggle popover</button>
-          <div id="mypopover" popover>Popover!</div>
+          <button class="btn btn-primary" popovertarget="mypopover">Show Note Details</button>
+          <div id="mypopover" popover class="note-popover">
+            <div class="popover-header">
+              <h3>Note Details</h3>
+              <button class="btn-close" popovertarget="mypopover"></button>
+            </div>
+            <div class="popover-content">
+              <p>This is a styled native popover with custom content.</p>
+              <div class="note-meta">
+                <span class="date">Created: Today</span>
+                <span class="category">Category: General</span>
+              </div>
+            </div>
+          </div>
 
         <!-- Upcoming Classes Section -->
          <!-- This also can change, maybe change the type of the font? / Rodrigo git-->

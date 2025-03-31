@@ -102,14 +102,14 @@ function displayNotes() {
                 return;
             }
 
-            notes.forEach(note => {
+            notes.forEach((note, index) => {
                 const noteElement = document.createElement("div");
                 noteElement.className = "note card px-3 py-3 mb-3";
+                noteElement.id = "note-" + index; // Set the note ID as the element I
                 noteElement.innerHTML = `
                     <h3>${note.title}</h3>
                     <p>${note.content}</p>
-                    <button class="details-note-btn" data-note-id="${note.id}">Details</button>
-                `;
+                    <button class="details-note-btn" data-note-id="${index}">Details</button>`;
                 notesContainer.appendChild(noteElement);
             });
 
