@@ -27,8 +27,8 @@ h3, p {
 }
 
 .card-bg {
-    background-color: #E7DDBA; 
-    color: #373E40;
+    background-color: #2F3234; 
+    color: #E7DDBA;
     transition: background-color 0.3s ease, transform 0.2s ease;
     padding: 1.5rem; /* Added extra padding inside cards */
 }
@@ -70,7 +70,7 @@ h3, p {
 }
 
 .bg-p1 {
-    background-color: #2F3234; 
+    background-color: #E7DDBA; 
 }
 
 /* New styles for larger content */
