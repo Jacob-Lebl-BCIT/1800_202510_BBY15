@@ -1,8 +1,13 @@
 :root {
-  --primary: #E7DDBA;
-  --secondary: #A1683A;
-  --accent: #305252;
-  --dark: #373E40;
+  --primary: #373E40;;
+  --secondary: #B0A280;
+  --accent: #305352;
+  --dark: #2F3234;
+  --light: #E7DDBA;
+}
+
+body {
+  color: var(--light)
 }
 
 .primary {
@@ -22,52 +27,152 @@
 }
 
 .row-striped:nth-of-type(odd){
-    background-color: #efefef;
-    border-left: 4px #000000 solid;
+  background-color: var(--dark);
+  border-left: 4px var(--secondary) solid;
+  color: var(--light);
+  border-radius: 8px;
   }
   
   .row-striped:nth-of-type(even){
-    background-color: #ffffff;
-    border-left: 4px #efefef solid;
+    background-color: var(--dark);
+    border-left: 4px var(--secondary) solid;
+    color: var(--light);
+    border-radius: 8px;
   }
   
   .row-striped {
       padding: 15px 0;
+      margin-bottom: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-#notes-container {
+  .row-striped:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+#notes-container {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1pc;
-
-
+    row-gap: 1pc;
 }
 
 #notes-container button {
 
-/* Possible button adjustments:
-    background-color: var(--accent);
-    color: var(--primary);
-    border-radius: 5px;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px; */
-
     border: none;
 
 }
 
 
-  .note-group {
+/* TODO: change width for device type */
+.note {
+  width: 13pc;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--dark);
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  color: var(--light);
+}
+
+.note:hover {
+  transform: translateY(-3pt);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.note-header {
+  background-color: var(--secondary);
+  color: var(--dark);
+  padding: 0.5rem;
+}
+
+.note-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.note p {
+  padding: 0.5rem;
+  margin: 0;
+  color: var(--light);
+}
+
+.note-footer {
+  padding: 0.5rem;
+  border-top: 1px solid var(--accent);
+  font-size: 0.8rem;
+  color: var(--light);
+}
+
+/* Native Popover Styles */
+.note-popover {
+  background-color: var(--dark);
+  border: 3pt solid var(--secondary);
+    border-radius: 8px;
+    padding: 0;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.note-popover::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popover-header {
+  background-color: var(--secondary);
+  color: var(--dark);
+    padding: 1rem;
     display: flex;
-    flex-wrap: wrap;
-  }
+    justify-content: space-between;
+    align-items: center;
+}
 
-  .note-group .card{
+.popover-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
 
-    max-width: 18pc;
-  }
+.popover-header .btn-close {
+    background-color: transparent;
+    border: none;
+    color: var(--dark);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.popover-content {
+    padding: 1rem;
+    color: var(--light);
+}
+
+.note-meta {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--secondary);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--secondary);
+}
+
+/* Animation for popover */
+@keyframes popoverFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.note-popover[popover]:open {
+    animation: popoverFadeIn 0.2s ease-out;
+}
+
+

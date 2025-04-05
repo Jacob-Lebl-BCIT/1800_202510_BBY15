@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Stoated - Your Trusty Companion</title>
+    <title>Notify    - Your Trusty Companion</title>
     <meta name="description" content="Organize your thoughts, ideas, and reminders in one place">
 
     <!-- Required meta tags -->
@@ -31,8 +31,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/style-landing.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/style-landing.css">
 
 </head>
 
@@ -41,58 +41,80 @@
     <nav id="placeholder_nav"></nav>
 
     <!-- Hero Section -->
-    <header class="bg-primary text-white text-center py-5">
+    <header class="text-center py-5" style="background-color: #2F3234;">
         <div class="container">
-            <h1 class="display-4">Welcome to Stoated</h1>
-            <p class="lead">Your Study Mate</p>
+            <h1 class="display-1">Welcome to Notify</h1>
+            <p class="header-p">Your Study Mate</p>
         </div>
     </header>
 
-    <main class="py-5">
+    <main class="py-5 backgroundMain">
         <div class="container">
-            
+            <div class="card-bg2 mb-5">
+                <div class="card mb-4 shadow-lg">
+                    <div class="row g-0">
+
+                        <!-- Left column with the image -->
+                        <div class="col-md-6">
+                            <img src="/1800_202510_BBY15/images/study2.png" class="img-fluid rounded-start" alt="Study Image"/>
+                        </div>
+
+                        <!-- Right column with text -->
+                        <div class="col-md-6 d-flex align-items-center p-5 card-bg2">
+                            <div class="card-body">
+                                <h5 class="card-title">Stay Focused</h5>
+                                <p class="card-text">
+                                    Use Notify to effectively manage your study sessions, class schedules,
+                                    and notes—all in one place.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <section class="mb-5">
-                <h2 class="text-center mb-4">Why Choose Stoaded?</h2>
+                <h2 class="text-center mb-4 display-3">Why Choose Notify?</h2>
                 <div class="row g-4">
                     <div class="col-md-4">
-                        <div class="card h-100">
+                        <div class="card h-100 card-bg p-4 shadow-lg">
                             <div class="card-body text-center">
-                                <i class="fas fa-lock fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Feeling behind?</h5>
-                                <p class="card-text">Stoated aims to aid you in your studies by offering a place to keep your notes, BCIT class schedule, and learning goals all in one place.</p>
+                                <i class="fas fa-lock fa-5x mb-4"></i>
+                                <h5 class="card-title display-6">Feeling behind?</h5>
+                                <p class="card-text fs-4">Stoated aims to aid you in your studies by offering a place to keep
+                                    your notes, BCIT class schedule, and learning goals all in one place.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card h-100">
+                        <div class="card h-100 card-bg p-4 shadow-lg">
                             <div class="card-body text-center">
-                                <i class="fas fa-sync fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Sync Everywhere</h5>
-                                <p class="card-text">Access your notes from any device, anytime, anywhere.</p>
+                                <i class="fas fa-sync fa-5x mb-4"></i>
+                                <h5 class="card-title display-6">Sync Everywhere</h5>
+                                <p class="card-text fs-4">Access your notes from any device, anytime, anywhere.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card h-100">
+                        <div class="card h-100 card-bg p-4 shadow-lg">
                             <div class="card-body text-center">
-                                <i class="fas fa-palette fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Customizable</h5>
-                                <p class="card-text">Personalize your notes with different styles and formats.</p>
+                                <i class="fas fa-palette fa-5x mb-4"></i>
+                                <h5 class="card-title display-6">Customizable</h5>
+                                <p class="card-text fs-4">Personalize your notes with different styles and formats.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
-     
-            <section id="get-started" class="text-center py-5 bg-light rounded shadow-sm">
-                <h2 class="mb-4">Ready to get started?</h2>
-                <p class="lead mb-4">Create an account to start organizing your notes today.</p>
-                <div class="d-grid gap-2 col-md-6 mx-auto">
-                    <a href="" class="btn btn-primary btn-lg">Sign Up</a>
-                    <a href="login.html" class="btn btn-outline-secondary">Log In</a>
+            
+            <section id="get-started" class="text-center py-5 rounded shadow-lg card-bg">
+                <h3 class="mb-4 display-4">Ready to get started?</h3>
+                <p class="lead mb-4 fs-3">Create an account to start organizing your notes today.</p>
+                <div class="d-grid gap-3 col-md-6 mx-auto">
+                    <a href="" class="btn btn-primary btn-lg card-bga py-3 fs-4">Sign Up</a>
+                    <a href="login.html" class="btn btn-outline-secondary btn-lg py-3 fs-4">Log In</a>
                 </div>
             </section>
         </div>

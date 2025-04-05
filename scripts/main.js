@@ -102,21 +102,45 @@ function displayNotes() {
                 return;
             }
 
-            notes.forEach(note => {
+            // Notes propegation
+            notes.forEach((note, index) => {
                 const noteElement = document.createElement("div");
-                noteElement.className = "note card px-3 py-3 mb-3";
+                noteElement.className = "note";
+                noteElement.id = "note-" + index;
                 noteElement.innerHTML = `
-                    <h3>${note.title}</h3>
+                    <div class="note-header">
+                        <h3>${note.title}</h3>
+                    </div>
                     <p>${note.content}</p>
-                    <button class="details-note-btn" data-note-id="${note.id}">Details</button>
-                `;
-                notesContainer.appendChild(noteElement);
-            });
+                    <div class="note-footer">
+                        <span>Note #${index + 1}</span>
+                    </div>`;
 
-            // Add event listeners to open details for each note
-            const deleteButtons = document.querySelectorAll(".details-note-btn");
-            deleteButtons.forEach(button => {
-                button.addEventListener("click", openDetails);
+                // Create popover for this note
+                const popover = document.createElement("div");
+                popover.className = "note-popover";
+                popover.id = "note-popover-" + index;
+                popover.setAttribute("popover", "");
+                popover.innerHTML = `
+                    <div class="popover-header">
+                        <h3>${note.title}</h3>
+                        <button class="btn-close" popovertarget="note-popover-${index}"></button>
+                    </div>
+                    <div class="popover-content">
+                        <p>${note.content}</p>
+                        <div class="note-meta">
+                            <span class="date">Created: ${note.timestamp ? new Date(note.timestamp.toDate()).toLocaleDateString() : 'Unknown'}</span>
+                            <span class="category">Note #${index + 1}</span>
+                        </div>
+                    </div>`;
+                document.body.appendChild(popover);
+
+                // Add click event to show popover
+                noteElement.addEventListener("click", () => {
+                    popover.showPopover();
+                });
+
+                notesContainer.appendChild(noteElement);
             });
         })
         .catch(error => {

@@ -1,0 +1,59 @@
+:root {
+    --primary: #E7DDBA;
+    --secondary: #A1683A;
+    --accent: #305252;
+    --dark: #373E40;
+  }
+
+  .primary {
+    background-color: var(--primary);
+  }
+  
+  .secondary {
+    background-color: var(--secondary);
+  }
+  
+  .accent {
+    background-color: var(--accent);
+  }
+  
+  .dark {
+    background-color: var(--dark);
+  }
+  
+  .row-striped:nth-of-type(odd){
+      background-color: #efefef;
+      border-left: 4px #000000 solid;
+    }
+    
+    .row-striped:nth-of-type(even){
+      background-color: #ffffff;
+      border-left: 4px #efefef solid;
+    }
+    
+    .row-striped {
+        padding: 15px 0;
+    }
+  
+  
+    .note-group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    .note-group .card{
+  
+      max-width: 18pc;
+    }
+  
+    h1{
+      font-family: "Lilita One", sans-serif;
+      font-weight: 200;
+      font-style: normal;
+  
+    }
+    h2{
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }

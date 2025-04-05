@@ -1,1 +1,118 @@
 /* For possible css uses, already linked with our landingpage.html */
+
+header {
+    background-color: #B0A280;
+    padding: 3rem 0; /* Increased padding */
+}
+
+.header-p {
+    color: #B0A280;
+    font-size: 2.5rem; /* Increased from native size */
+    margin-top: 1rem;
+}
+
+h1, h2 {
+    color: #B0A280;
+    font-size: 125%; /* Make all h1, h2 elements 25% larger */
+}
+
+h3, p {
+   color: #373E40;
+   font-size: 125%; /* Make all h3, p elements 25% larger */
+}
+
+.backgroundMain {
+    background-color: #373E40;
+    padding: 4rem 0; /* Increased padding */
+}
+
+.card-bg {
+    background-color: #2F3234; 
+    color: #E7DDBA;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 1.5rem; /* Added extra padding inside cards */
+}
+
+.card-bg2 {
+    background-color: #2F3234; 
+    color: #E7DDBA;
+    padding: 1.5rem; /* Added extra padding */
+}
+
+
+.card-bga {
+    background-color: #305352;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 1rem 2rem; /* Increased button padding */
+    font-size: 1.25rem; /* Larger button text */
+}
+
+.card-bg:hover {
+    background-color: #d9cfa3; /* Slightly darker/lighter version of #E7DDBA */
+    transform: scale(1.02);
+}
+
+.card-bg2 h5 {
+    font-size: 3.4rem; /* Increased from 2.7rem */
+    color: #E7DDBA;
+    margin-bottom: 1.5rem;
+}
+
+.card-bg2 p {
+    font-size: 1.9rem; /* Increased from 1.5rem */
+    color: #E7DDBA;
+    line-height: 1.5;
+}
+
+.card-bga:hover {
+    background-color: #3a645f; /* Slightly darker or lighter version of #305352 */
+    transform: scale(1.02);
+}
+
+.bg-p1 {
+    background-color: #E7DDBA; 
+}
+
+/* New styles for larger content */
+.container {
+    max-width: 1400px; /* Increased container width */
+}
+
+.card {
+    margin-bottom: 2rem;
+}
+
+.card-title {
+    font-size: 2rem; /* Force larger card titles */
+}
+
+.card-text {
+    font-size: 1.4rem; /* Force larger card text */
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.25rem;
+}
+
+.fa-4x {
+    font-size: 5em; /* Make icons larger */
+}
+
+footer {
+    padding: 2rem;
+    font-size: 1.25rem;
+}
+
+#get-started {
+    padding: 3rem;
+    margin-top: 3rem;
+}
+
+#get-started h3 {
+    font-size: 2.5rem;
+}
+
+#get-started .lead {
+    font-size: 1.75rem;
+}

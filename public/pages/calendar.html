@@ -17,8 +17,17 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
 
+    <!-- Firebase Core Libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Firebase Authentication UI Library -->
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <!-- Other libraries go here -->
- 
+
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="../styles/style.css">
@@ -32,20 +41,20 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-   
+
     <main class="bg-light">
-    <!-- Centered hero -->
+        <!-- Centered hero -->
 
 
 
 
-    <!-- Button -->
+        <!-- Button -->
 
 
-    <!-- Stuff for body goes here -->
-    <nav id="placeholder_nav"></nav>    
+        <!-- Stuff for body goes here -->
+        <nav id="placeholder_nav"></nav>
 
-    <!-- This is the whole calendar, yeah, im serious, but its going to change trough the week / Rodrigo -->
+        <!-- This is the whole calendar, yeah, im serious, but its going to change trough the week / Rodrigo -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
@@ -94,10 +103,12 @@
                                         <input type="text" placeholder="Event Name" class="event-name form-control">
                                     </div>
                                     <div class="add-event-input mb-3">
-                                        <input type="text" placeholder="Event Time From" class="event-time-from form-control">
+                                        <input type="text" placeholder="Event Time From"
+                                            class="event-time-from form-control">
                                     </div>
                                     <div class="add-event-input mb-3">
-                                        <input type="text" placeholder="Event Time To" class="event-time-to form-control">
+                                        <input type="text" placeholder="Event Time To"
+                                            class="event-time-to form-control">
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -133,14 +144,11 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <!-- jQuery -->
-     <!-- This code below seems to be not useful for now... / Rodrigo -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script> -->
-
     <!-- Custom JS -->
     <script src="../scripts/scripts-calendar.js"></script>
     <script src="/scripts/skeleton.js"></script>
     <script src="/scripts/main.js"></script>
     <script src="/scripts/firebaseAPI.js"></script>
 </body>
+
 </html>

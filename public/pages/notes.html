@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
+    <title>Notes - Notify</title>
+    <meta name="description" content="Your notes and shared notes">
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,23 +17,25 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
 
-    <!-- Other libraries go here -->
     <!-- Firebase Core Libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-     <!-- Firebase Authentication UI Library -->
-     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <!-- Firebase Authentication UI Library -->
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-- Link to styles of your own -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Link to styles of your own - FIXED PATH -->
     <link rel="stylesheet" href="../styles/style.css">
 
 </head>
 
-<body class="dark">
+<body class="backgroundMain">
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -41,115 +43,136 @@
 
     <nav id="placeholder_nav"></nav>
 
-    <main class="bg-light">
-        <!-- Centered hero -->
- 
-
-          
-
-        <!-- Button -->
-
-
-    <!-- Stuff for body goes here -->
-<div class="px-5 py-4">
-    <h1>Your Notes<span class="badge badge-info">...</span></h1>
-</div> 
-
-<div class="px-5">
-    <div class="row">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Full Note</a>
-              <a href="#" class="card-link">Share</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Full note</a>
-              <a href="#" class="card-link">Share</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Full note</a>
-              <a href="#" class="card-link">Share</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="px-5 py-4">
-    <h1>Shared With You<span class="badge badge-danger">...</span></h1>
-</div>
-
-<div class="px-5">
-    <div class="row">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-        </div>
-    </div>
-</div>  
-
-
-
-
-            
-            <footer>
-                <div class="sticky-bottom justify-content-end d-flex p-3">
-
-                    <button type="button" class="btn p-0" onclick="userClick()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
-                            class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
-                            <path
-                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
-                        </svg>
-                    </button>
+    <main class="py-5">
+        <div class="container">
+            <!-- Your Notes Section -->
+            <div class="card-bg rounded shadow-lg p-4 mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="display-5 fw-bold" style="color: #E7DDBA;">Your Notes</h1>
                 </div>
-            </footer>
-        </main>
+
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">COMP 1800</h5>
+                                <h6 class="card-subtitle mb-2">Week 5 Notes</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <a href="#" class="card-link">Full Note</a>
+                                <a href="#" class="card-link">Share</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">COMP 1510</h5>
+                                <h6 class="card-subtitle mb-2">Midterm Prep</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <a href="#" class="card-link">Full Note</a>
+                                <a href="#" class="card-link">Share</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">COMM 1116</h5>
+                                <h6 class="card-subtitle mb-2">Group Project Ideas</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <a href="#" class="card-link">Full Note</a>
+                                <a href="#" class="card-link">Share</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shared With You Section -->
+            <div class="card-bg rounded shadow-lg p-4 mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="display-5 fw-bold" style="color: #E7DDBA;">Shared With You</h1>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Study Group Notes</h5>
+                                <h6 class="card-subtitle mb-2">From: Alex</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <a href="#" class="card-link">View</a>
+                                <a href="#" class="card-link">Save Copy</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Project Requirements</h5>
+                                <h6 class="card-subtitle mb-2">From: Jamie</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <a href="#" class="card-link">View</a>
+                                <a href="#" class="card-link">Save Copy</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Lecture Summary</h5>
+                                <h6 class="card-subtitle mb-2">From: Taylor</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <a href="#" class="card-link">View</a>
+                                <a href="#" class="card-link">Save Copy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div id="placeholder-new-note-btn" class="sticky-bottom justify-content-end d-flex p-3">
+                <button type="button" class="btn p-0" onclick="userClick()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#B0A280" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+    </footer>
+
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
-    <script src="/scripts/firebaseAPI.js"></script>
-    <script src="/scripts/skeleton.js"></script>
-    <script src="/scripts/main.js"></script>
-    <script src="/scripts/button.js"></script>
-    <!-- This is for the button of the notes section!!! this allows the proper functionality of the pop up / modal tinguililingui-->
+    <script src="../scripts/firebaseAPI.js"></script>
+    <script src="../scripts/skeleton.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/button.js"></script>
+    <!-- This is for the button of the notes section -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>

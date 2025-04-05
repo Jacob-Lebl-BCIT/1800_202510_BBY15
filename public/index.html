@@ -60,26 +60,27 @@
                             <a href="#" class="card-link">Click to reveal</a>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
 
-        <!-- Notes Section -->
-        <!-- <div class="note-group card-group px-5">
-            <div class="card">
-              <div class="card-body"> 
-                <h5 class="card-title">Placeholder card!</h5>
-                <p class="card-text">It has content!</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+          <div class="px-5 py-3" id="notes-container"></div>
+
+          <button class="btn btn-primary" popovertarget="mypopover">Show Note Details</button>
+          <div id="mypopover" popover class="note-popover">
+            <div class="popover-header">
+              <h3>Note Details</h3>
+              <button class="btn-close" popovertarget="mypopover"></button>
+            </div>
+            <div class="popover-content">
+              <p>This is a styled native popover with custom content.</p>
+              <div class="note-meta">
+                <span class="date">Created: Today</span>
+                <span class="category">Category: General</span>
               </div>
             </div>
-          </div> -->
-
-          <div class="px-5" id="notes-container"></div>
-
-          <button popovertarget="mypopover">toggle popover</button>
-          <div id="mypopover" popover>Popover!</div>
+          </div>
 
         <!-- Upcoming Classes Section -->
          <!-- This also can change, maybe change the type of the font? / Rodrigo git-->
@@ -119,8 +120,16 @@
                 </div>
             </div>
 
+        </div>
+
         <!-- Button -->
-        <div id="placeholder-new-note-btn"></div>
+        <div id="placeholder-new-note-btn" class="sticky-bottom justify-content-end d-flex p-3">
+            <button type="button" class="btn p-0" onclick="userClick()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#E7DDBA;" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"></path>
+                </svg>
+            </button>
+        </div>
     </main>
 
     <footer class="footer p-4 py-3 bg-dark d-flex gap-3">
