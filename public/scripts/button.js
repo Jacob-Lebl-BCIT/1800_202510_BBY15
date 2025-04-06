@@ -97,7 +97,9 @@ async function userClick() {
             // Optional: Refresh the notes display if on the notes page
             if (window.location.pathname.includes('notes')) {
                 // Call function to refresh notes display
-                displayUserNotes();
+                displayCardsDynamically("notes");
+            } else {
+                displayNotes();
             }
             
         } catch (error) {
