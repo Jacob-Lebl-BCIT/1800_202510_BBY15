@@ -10,7 +10,7 @@ body {
   color: var(--light)
 }
 
-.primary {
+.primary {   
   background-color: var(--primary);
 }
 
