@@ -1,4 +1,4 @@
-// From this YT Channel https://www.youtube.com/channel/UCiUtBDVaSmMGKxg1HYeK-BQ
+// Code taken from this YT Channel https://www.youtube.com/channel/UCiUtBDVaSmMGKxg1HYeK-BQ
 
 const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
@@ -17,6 +17,7 @@ const calendar = document.querySelector(".calendar"),
   addEventTitle = document.querySelector(".event-name "),
   addEventFrom = document.querySelector(".event-time-from "),
   addEventTo = document.querySelector(".event-time-to "),
+  addEventDescription = document.querySelector(".event-desc "),
   addEventSubmit = document.querySelector(".add-event-btn ");
 
 let today = new Date();
@@ -48,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("User signed in, loading calendar events from Firestore");
       getEventsFromFirestore();
     } else {
-      console.log("No user signed in, using local storage for calendar events");
-      getEventsFromLocalStorage();
+      console.log("No user signed in, please log in to use the calendar");
+      // Initialize empty calendar without events
       initCalendar();
     }
   });
@@ -232,6 +233,7 @@ function getActiveDay(date) {
 }
 
 //function update events when a day is active
+
 function updateEvents(date) {
   let events = "";
   eventsArr.forEach((event) => {
@@ -241,6 +243,9 @@ function updateEvents(date) {
       year === event.year
     ) {
       event.events.forEach((event) => {
+        // Handle case where description might be undefined for older events
+        const description = event.description || "";
+        
         events += `<div class="event">
             <div class="title">
               <i class="fas fa-circle"></i>
@@ -248,6 +253,9 @@ function updateEvents(date) {
             </div>
             <div class="event-time">
               <span class="event-time">${event.time}</span>
+            </div>
+            <div class="event-desc">
+              <p class="event-description">${description}</p>
             </div>
         </div>`;
       });
@@ -275,11 +283,6 @@ document.addEventListener("click", (e) => {
   if (e.target !== addEventBtn && !addEventWrapper.contains(e.target)) {
     addEventWrapper.classList.remove("active");
   }
-});
-
-//allow 50 chars in eventtitle
-addEventTitle.addEventListener("input", (e) => {
-  addEventTitle.value = addEventTitle.value.slice(0, 60);
 });
 
 // Define property function (previously undefined)
@@ -313,8 +316,10 @@ addEventSubmit.addEventListener("click", async () => {
   const eventTitle = addEventTitle.value;
   const eventTimeFrom = addEventFrom.value;
   const eventTimeTo = addEventTo.value;
+  const eventDescription = addEventDescription.value; // Get the description value
+  
   if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "") {
-    alert("Please fill all the fields");
+    alert("Please fill all the required fields");
     return;
   }
 
@@ -358,6 +363,7 @@ addEventSubmit.addEventListener("click", async () => {
   const newEvent = {
     title: eventTitle,
     time: timeFrom + " - " + timeTo,
+    description: eventDescription // Include the description in the event object
   };
   
   console.log(newEvent);
@@ -391,13 +397,17 @@ addEventSubmit.addEventListener("click", async () => {
   addEventTitle.value = "";
   addEventFrom.value = "";
   addEventTo.value = "";
+  addEventDescription.value = ""; // Reset the description field
   
   // Show loading indicator
   eventsContainer.innerHTML = `<div class="text-center"><div class="spinner-border text-light" role="status">
     <span class="visually-hidden">Loading...</span>
   </div></div>`;
-  
-  // Save to Firestore
+
+
+
+// FIRESTORE FUNCTIONS UNDER HERE!!!!!!!
+
   try {
     await saveEventsToFirestore();
     updateEvents(activeDay);
@@ -462,11 +472,14 @@ eventsContainer.addEventListener("click", async (e) => {
   }
 });
 
-
-
-// FIRESTORE FUNCTIONS UNDER HERE!!!!!!!
 async function saveEventsToFirestore() {
   const user = firebase.auth().currentUser;
+  
+  if (!user) {
+    console.log("User not logged in, events not saved to Firestore");
+    return;
+  }
+  
     // Reference to the user's events subcollection
     const eventsRef = firebase.firestore().collection("users").doc(user.uid).collection("events");
     
@@ -486,50 +499,47 @@ async function saveEventsToFirestore() {
     
     // Commit the batch
     await batch.commit();
-    
     console.log("Events saved to Firestore as subcollection");
 }
 
 
 // Function to save events (calls Firestore function)
 function saveEvents() {
-  // For non-async contexts, we'll call the Firestore function without await
-  saveEventsToFirestore().catch(error => {
-    console.error("Error in saveEvents:", error);
-  });
+  const user = firebase.auth().currentUser;
+  if (user) {
+    // Only save to Firestore if user is logged in
+    saveEventsToFirestore().catch(error => {
+      console.error("Error in saveEvents:", error);
+    });
+  } else {
+    console.log("User not logged in, events not saved");
+  }
 }
 
 // Function to get events from Firestore
 async function getEventsFromFirestore() {
   const user = firebase.auth().currentUser;
-
-  try {
     const eventsSnapshot = await firebase.firestore()
       .collection("users")
       .doc(user.uid)
       .collection("events")
       .get();
     
+    // Clear existing events
+    eventsArr.length = 0;
+    
     if (!eventsSnapshot.empty) {
-      // Clear existing events and load from subcollection
-      eventsArr.length = 0;
       eventsSnapshot.forEach(doc => {
         eventsArr.push(doc.data());
       });
       console.log("Events loaded from Firestore subcollection:", eventsArr);
     } else {
-      // If no events in Firestore, try local storage
-      getEventsFromLocalStorage();
+      console.log("No events found in Firestore");
     }
-  } catch (error) {
-    console.error("Error getting events from Firestore:", error);
-    // Fallback to local storage
-    getEventsFromLocalStorage();
   }
   
   // Refresh calendar to display events
   initCalendar();
-}
 
 // Original getEvents function (calls Firestore version)
 function getEvents() {
