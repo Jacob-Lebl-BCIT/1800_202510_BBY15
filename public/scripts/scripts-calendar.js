@@ -467,13 +467,6 @@ eventsContainer.addEventListener("click", async (e) => {
 // FIRESTORE FUNCTIONS UNDER HERE!!!!!!!
 async function saveEventsToFirestore() {
   const user = firebase.auth().currentUser;
-  if (!user) {
-    // If no user, save to local storage as fallback
-    localStorage.setItem("events", JSON.stringify(eventsArr));
-    return;
-  }
-
-  try {
     // Reference to the user's events subcollection
     const eventsRef = firebase.firestore().collection("users").doc(user.uid).collection("events");
     
@@ -495,16 +488,8 @@ async function saveEventsToFirestore() {
     await batch.commit();
     
     console.log("Events saved to Firestore as subcollection");
-    
-    // Also save to local storage as backup
-    localStorage.setItem("events", JSON.stringify(eventsArr));
-  } catch (error) {
-    console.error("Error saving events to Firestore:", error);
-    // Still save to local storage if Firestore fails
-    localStorage.setItem("events", JSON.stringify(eventsArr));
-    throw error; // Re-throw to handle it in the calling function
-  }
 }
+
 
 // Function to save events (calls Firestore function)
 function saveEvents() {
@@ -546,16 +531,7 @@ async function getEventsFromFirestore() {
   initCalendar();
 }
 
-// Function to get events from local storage (fallback)
-function getEventsFromLocalStorage() {
-  if (localStorage.getItem("events")) {
-    eventsArr.length = 0;
-    eventsArr.push(...JSON.parse(localStorage.getItem("events")));
-    console.log("Events loaded from local storage");
-  }
-}
-
-// Original getEvents function (now calls Firestore version)
+// Original getEvents function (calls Firestore version)
 function getEvents() {
   getEventsFromFirestore().catch(error => {
     console.error("Error in getEvents:", error);
