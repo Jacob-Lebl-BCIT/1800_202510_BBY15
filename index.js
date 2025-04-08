@@ -1,4 +1,4 @@
-// Express app - Notify web application server
+// Express app - Snotes web application server
 
 const express = require("express");
 const app = express();

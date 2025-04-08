@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
+    <title>Calendar - Notify</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -26,104 +26,144 @@
     <!-- Firebase Authentication UI Library -->
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    <!-- Other libraries go here -->
-
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/style-calendar.css">
-
+    <style>
+      
+    </style>
 </head>
 
-<body class="bg-dark">
+<body class="primary">
+    <nav id="placeholder_nav"></nav>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-
-
-    <main class="primary px-4">
-        <nav id="placeholder_nav"></nav>
-
-        <!-- This is the whole calendar, yeah, im serious, but its going to change trough the week / Rodrigo -->
-        <div class="container-fluid">
+    <main class="container-fluid py-5">
+        <div class="container">
+            <h1 class="text-center display-4 mb-5" style="color: var(--light);">Calendar</h1>
+            
             <div class="row">
-                <div class="col-md-8">
-                    <div class="calendar card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <i class="fas fa-angle-left prev btn btn-outline-secondary"></i>
-                            <div class="date h4 mb-0">December 2015</div>
-                            <i class="fas fa-angle-right next btn btn-outline-secondary"></i>
-                        </div>
-                        <div class="card-body">
-                            <div class="weekdays d-flex justify-content-between mb-3">
-                                <div>Sunday</div>
-                                <div>Monday</div>
-                                <div>Tuesday</div>
-                                <div>Wednesday</div>
-                                <div>Thursday</div>
-                                <div>Friday</div>
-                                <div>Saturday</div>
+                <div class="col-lg-8 mb-4">
+                    <div class="card card-bg shadow-lg">
+                        <div class="card-body p-4">
+                            <!-- Calendar Header -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <button class="btn btn-lg card-bga prev">
+                                    <i class="fas fa-angle-left"></i>
+                                </button>
+                                <h3 class="date m-0">December 2023</h3>
+                                <button class="btn btn-lg card-bga next">
+                                    <i class="fas fa-angle-right"></i>
+                                </button>
                             </div>
-                            <div class="days d-flex flex-wrap"></div>
-                            <div class="goto-today d-flex justify-content-between mt-3">
-                                <div class="goto d-flex">
-                                    <input type="text" placeholder="mm/yyyy" class="date-input form-control me-2">
-                                    <button class="goto-btn btn btn-primary">Go</button>
+                            
+                            <!-- Weekdays -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <div class="text-center" style="width: 14.28%; font-size: 1.2rem;"><strong>Sun</strong></div>
+                                <div class="text-center" style="width: 14.28%; font-size: 1.2rem;"><strong>Mon</strong></div>
+                                <div class="text-center" style="width: 14.28%; font-size: 1.2rem;"><strong>Tue</strong></div>
+                                <div class="text-center" style="width: 14.28%; font-size: 1.2rem;"><strong>Wed</strong></div>
+                                <div class="text-center" style="width: 14.28%; font-size: 1.2rem;"><strong>Thu</strong></div>
+                                <div class="text-center" style="width: 14.28%; font-size: 1.2rem;"><strong>Fri</strong></div>
+                                <div class="text-center" style="width: 14.28%; font-size: 1.2rem;"><strong>Sat</strong></div>
+                            </div>
+                            
+                            <!-- Days - Grid will be filled by JavaScript -->
+                            <div class="days"></div>
+                            
+                            <!-- Calendar Footer -->
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <div class="input-group" style="max-width: 220px;">
+                                    <input type="text" class="form-control form-control-lg date-input" placeholder="mm/yyyy">
+                                    <button class="btn btn-outline-secondary btn-lg goto-btn">Go</button>
                                 </div>
-                                <button class="today-btn btn btn-secondary">Today</button>
+                                <button class="btn card-bga btn-lg today-btn">Today</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="right card">
-                        <div class="card-body">
-                            <div class="today-date d-flex justify-content-between align-items-center mb-4">
-                                <div class="event-day h3 mb-0">Wed</div>
-                                <div class="event-date text-muted">12th December 2022</div>
+                
+                <div class="col-lg-4">
+                    <div class="card card-bg shadow-lg">
+                        <div class="card-body p-4">
+                            <!-- Event Day Display -->
+                            <div class="mb-4 text-center">
+                                <h3 class="event-day mb-2">Wednesday</h3>
+                                <h5 class="event-date">12th December 2023</h5>
                             </div>
-                            <div class="events"></div>
-                            <div class="add-event-wrapper card">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <div class="title h5 mb-0">Add Event</div>
-                                    <i class="fas fa-times close btn btn-outline-danger"></i>
-                                </div>
-                                <div class="card-body">
-                                    <div class="add-event-input mb-3">
-                                        <input type="text" placeholder="Event Name" class="event-name form-control">
-                                    </div>
-                                    <div class="add-event-input mb-3">
-                                        <input type="text" placeholder="Event Time From"
-                                            class="event-time-from form-control">
-                                    </div>
-                                    <div class="add-event-input mb-3">
-                                        <input type="text" placeholder="Event Time To"
-                                            class="event-time-to form-control">
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <button class="add-event-btn btn btn-primary w-100">Add Event</button>
-                                </div>
-                            </div>
+                            
+                            <!-- Events List -->
+                            <div class="events overflow-auto" style="max-height: 450px;"></div>
+                            
+                            <!-- Add Event Button -->
+                            <button class="btn card-bga w-100 mt-4 py-3 add-event">
+                                <i class="fas fa-plus me-2"></i>Add Event
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Add Event Modal -->
+        <div class="add-event-wrapper card shadow-lg">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="m-0 title" style="color: var(--dark); font-size: 1.5rem;">Add Event</h5>
+                <button type="button" class="btn-close close" aria-label="Close"></button>
+            </div>
+            <div class="card-body add-event-body p-4" style="background-color: var(--dark);">
+                <div class="mb-3">
+                    <input type="text" class="form-control form-control-lg event-name" placeholder="Event Name">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control form-control-lg event-time-from" placeholder="Event Time From (HH:MM)">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control form-control-lg event-time-to" placeholder="Event Time To (HH:MM)">
+                </div>
+                <button class="btn card-bga w-100 py-3 add-event-btn fs-5">Add Event</button>
+            </div>
+        </div>
     </main>
 
-    <footer class="footer p-4 py-3 bg-dark d-flex gap-3">
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h5 style="color: #E7DDBA;">Connect</h5>
+                    <div class="d-flex gap-3 fs-4">
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-white">
+            <div class="text-center">
+                <p class="mb-0">© 2025 Notify - Your Study Mate</p>
+            </div>
+        </div>
     </footer>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-    <!-- Custom JS -->
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../scripts/scripts-calendar.js"></script>
-    <script src="/scripts/skeleton.js"></script>
-    <script src="/scripts/main.js"></script>
-    <script src="/scripts/firebaseAPI.js"></script>
+    <script src="../scripts/firebaseAPI.js"></script>
+    <script src="../scripts/skeleton.js"></script>
+    <script src="../scripts/main.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            console.log("Loading navbar...");
+            $("#placeholder_nav").load("../components/navbar.html", function() {
+                console.log("Navbar loaded");
+            });
+        });
+    </script>
 </body>
 
 </html>

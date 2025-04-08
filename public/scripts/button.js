@@ -97,7 +97,9 @@ async function userClick() {
             // Optional: Refresh the notes display if on the notes page
             if (window.location.pathname.includes('notes')) {
                 // Call function to refresh notes display
-                displayUserNotes();
+                displayCardsDynamically("notes");
+            } else {
+                displayNotes();
             }
             
         } catch (error) {
@@ -113,4 +115,37 @@ async function userClick() {
 
         // TODO: Update the UI to show the new note, e.g., by adding a new card also sync it with our "all notes" section
     }
+}
+
+function displayUserNotes() {
+    var notesRef = db.collection("notes");
+    const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    notesRef.add({
+        title: formValues.title,
+        content: formValues.content,
+        timestamp: timestamp,
+        lastModified: timestamp
+    });
+    displayCardsDynamically("notes");
+}
+function displayCardsDynamically(collection) {
+    let cardTemplate = document.getElementById("noteCardTemplate");  
+
+    db.collection(collection).get()   //the collection called "notes"
+        .then(allNotes=> {
+            //var i = 1; 
+            allNotes.forEach(doc => { //iterate thru each doc
+                var title = doc.data().title;       // get value of the "title" key
+                var details = doc.data().content;  // get value of the "content" key
+                let newcard = cardTemplate.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
+
+                //update title and text and image
+                newcard.querySelector('.card-title').innerHTML = title;
+                newcard.querySelector('.card-text').innerHTML = details;
+                newcard.querySelector('.card-subtitle').innerHTML = "Card subtitle";
+
+                document.getElementById("my-notes").appendChild(newcard);
+            })
+        })
+        // cardTemplate.classList.add("d-none");
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Notes - Notify</title>
+    <title>Notes - Snotes</title>
     <meta name="description" content="Your notes and shared notes">
 
     <!-- Required meta tags -->
@@ -41,58 +41,19 @@
 
     <nav id="placeholder_nav"></nav>
 
-    <main class="primary px-4">
+    <main class="py-5">
+        
+
+        <!-- <div class="px-5 py-3" id="notes-container"></div> -->
         <div class="container">
             <!-- Your Notes Section -->
             <div class="card-bg rounded shadow-lg p-4 mb-4">
+                
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h1 class="display-5 fw-bold" style="color: #E7DDBA;">Your Notes</h1>
                 </div>
+                <div id="notes-container"></div>
 
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">COMP 1800</h5>
-                                <h6 class="card-subtitle mb-2">Week 5 Notes</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between">
-                                <a href="#" class="card-link">Full Note</a>
-                                <a href="#" class="card-link">Share</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">COMP 1510</h5>
-                                <h6 class="card-subtitle mb-2">Midterm Prep</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between">
-                                <a href="#" class="card-link">Full Note</a>
-                                <a href="#" class="card-link">Share</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">COMM 1116</h5>
-                                <h6 class="card-subtitle mb-2">Group Project Ideas</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between">
-                                <a href="#" class="card-link">Full Note</a>
-                                <a href="#" class="card-link">Share</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- Shared With You Section -->
@@ -168,8 +129,9 @@
     <!-- Link to scripts of your own -->
     <script src="../scripts/firebaseAPI.js"></script>
     <script src="../scripts/skeleton.js"></script>
-    <script src="../scripts/main.js"></script>
+    <!-- <script src="../scripts/main.js"></script> -->
     <script src="../scripts/button.js"></script>
+    <script src="../scripts/notes.js"></script>
     <!-- This is for the button of the notes section -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
