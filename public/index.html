@@ -31,6 +31,12 @@
     <!-- Other libraries go here -->
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
+    
+    <!-- Add this link to the events CSS file -->
+    <link rel="stylesheet" href="./styles/events.css">
+    
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -74,39 +80,10 @@
         <!-- Upcoming Classes Section -->
          <!-- This also can change, maybe change the type of the font? / Rodrigo git-->
         <div class="px-5">
-            <h1 class="display-5 py-4 fw-bold">Upcoming Classes...</h1>
+            <h1 class="display-5 py-4 fw-bold">Upcoming Events</h1>
 
             <div class="container">
-                <div class="row row-striped">
-                    <div class="col-2 text-right">
-                        <h1 class="display-4">23</h1>
-                        <h2>OCT</h2>
-                    </div>
-                    <div class="col-10">
-                        <h3 class="text-uppercase"><strong>COMP 1800</strong></h3>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>
-                            <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
-                            <li class="list-inline-item"><i class="fa fa-location-arrow" aria-hidden="true"></i> Cafe</li>
-                        </ul>
-                        <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div class="row row-striped">
-                    <div class="col-2 text-right">
-                        <h1 class="display-4">27</h1>
-                        <h2>OCT</h2>
-                    </div>
-                    <div class="col-10">
-                        <h3 class="text-uppercase"><strong>COMP 1510</strong></h3>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Friday</li>
-                            <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 2:30 PM - 4:00 PM</li>
-                            <li class="list-inline-item"><i class="fa fa-location-arrow" aria-hidden="true"></i> Room 4019</li>
-                        </ul>
-                        <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
+                <!-- Events will be dynamically loaded here -->
             </div>
 
         </div>
@@ -133,5 +110,8 @@
      
      <!-- This is for the button of the notes section!!! this allows the proper functionality of the pop up / modal tinguililingui-->
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     
+     <!-- Add the events.js script before the closing </body> tag -->
+     <script src="/scripts/events-from-calendar.js"></script>
 </body>
 </html>
