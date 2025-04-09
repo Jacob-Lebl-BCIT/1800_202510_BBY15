@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "Start": "node index.js",
+    "start": "node index.js",
     "devStart": "nodemon index.js",
     "dev": "concurrently \"nodemon index.js\" \"browser-sync start --proxy localhost:8000 --files '*.html, *.css' --port 3050 --no-ui --no-notify\""
   },
