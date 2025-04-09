@@ -138,6 +138,9 @@ function displayNotes() {
                             <span class="date">Created: ${note.timestamp ? new Date(note.timestamp.toDate()).toLocaleDateString() : 'Unknown'}</span>
                             <span class="category">Note #${index + 1}</span>
                         </div>
+                        <div class="d-flex justify-content-end mt-3">
+                            <button class="btn btn-danger" onclick="deleteNote('${note.title}')">Delete Note</button>
+                        </div>
                     </div>`;
                 document.body.appendChild(popover);
 
@@ -185,6 +188,91 @@ function logout() {
     }).catch((error) => {
         // An error happened.
         console.log("error logging out user: " + error);
+    });
+}
+
+// Function to delete a note with confirmation
+async function deleteNote(noteTitle) {
+    // Close any open note popover first
+    const openNotePopover = document.querySelector('div.note-popover[popover]:popover-open');
+    if (openNotePopover) {
+        openNotePopover.hidePopover();
+    }
+
+    // Create and show confirmation popover
+    const confirmPopover = document.createElement('div');
+    confirmPopover.setAttribute('popover', 'manual'); // Use manual to prevent auto-closing
+    confirmPopover.className = 'note-popover'; // Use the same class as note popovers
+    confirmPopover.innerHTML = `
+        <div class="popover-header">
+            <h3>Delete Note</h3>
+            <button class="btn-close" popovertarget="${confirmPopover.id}"></button>
+        </div>
+        <div class="popover-content">
+            <p>Are you sure you want to delete this note? This action cannot be undone.</p>
+            <div class="note-meta">
+                <span class="category">Deleting: ${noteTitle}</span>
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+                <button class="btn btn-secondary me-2" onclick="this.closest('[popover]').hidePopover()">Cancel</button>
+                <button class="btn btn-danger confirm-delete">Delete Note</button>
+            </div>
+        </div>`;
+    
+    document.body.appendChild(confirmPopover);
+    confirmPopover.showPopover();
+
+    // Handle delete confirmation
+    const deleteButton = confirmPopover.querySelector('.confirm-delete');
+    deleteButton.addEventListener('click', async () => {
+        try {
+            const user = firebase.auth().currentUser;
+            if (user) {
+                // Delete the note from Firestore
+                await db.collection("users").doc(user.uid).collection("notes").doc(noteTitle).delete();
+                
+                // Show success message using Toastify
+                Toastify({
+                    text: "Note deleted successfully!",
+                    close: true,
+                    duration: 2500,
+                    style: {
+                      background: "var(--secondary)",
+                    },
+                    offset: {
+                        y: '3pc'
+                    }
+                }).showToast();
+
+                // Hide confirmation popover
+                confirmPopover.hidePopover();
+                // Remove the popover element after hiding
+                setTimeout(() => confirmPopover.remove(), 300);
+
+                // Refresh the notes display
+                displayNotes();
+            }
+        } catch (error) {
+            console.error("Error deleting note:", error);
+            Toastify({
+                text: "Error deleting note. Please try again.",
+                close: true,
+                duration: 2500,
+                style: {
+                    background: "var(--danger)",
+                },
+                offset: {
+                    y: '3pc'
+                }
+            }).showToast();
+        }
+    });
+
+    // Remove popover when hidden
+    confirmPopover.addEventListener('beforetoggle', (event) => {
+        if (event.newState === 'closed') {
+            setTimeout(() => confirmPopover.remove(), 300);
+        }
     });
 }
 
