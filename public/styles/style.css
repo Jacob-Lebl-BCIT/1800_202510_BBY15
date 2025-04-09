@@ -132,14 +132,23 @@ body {
   color: var(--light);
 }
 
+
+
 /* Native Popover Styles */
 .note-popover {
   background-color: var(--dark);
   border: 3pt solid var(--secondary);
-    border-radius: 8px;
-    padding: 0;
-    max-width: 300px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 0;
+  max-width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove default browser popover outline */
+[popover] {
+  border: none;
+  padding: 0;
+  outline: none;
 }
 
 .note-popover::backdrop {

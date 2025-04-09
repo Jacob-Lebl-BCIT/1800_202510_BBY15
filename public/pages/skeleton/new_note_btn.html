@@ -1,9 +1,24 @@
 <div class="sticky-bottom justify-content-end d-flex p-3">
-    <button type="button" class="btn p-0" onclick="userClick()">
+    <button popovertarget="new-note-popover" type="button" class="btn p-0">
         <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
             class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
             <path
                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
         </svg>
     </button>
+</div>
+
+<div popover id="new-note-popover" class="note-popover">
+    <div class="popover-header">
+        <h3>New Note</h3>
+        <button class="btn-close" popovertarget="new-note-popover"></button>
+    </div>
+    <div class="popover-content">
+        <input class="form-control mb-3" placeholder="Title">
+        <textarea class="form-control" placeholder="Note content" rows="5"></textarea>
+        <div class="note-meta">
+            <button class="btn btn-secondary">Cancel</button>
+            <button class="btn btn-primary" onclick="userClick()">Save</button>
+        </div>
+    </div>
 </div>
