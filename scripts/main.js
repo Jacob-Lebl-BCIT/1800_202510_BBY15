@@ -117,7 +117,7 @@ function displayNotes() {
                     <div class="note-header">
                         <h3>${note.title}</h3>
                     </div>
-                    <p>${note.content}</p>
+                    <p>${truncateText(note.content, 20)}</p>
                     <div class="note-footer">
                         <span>Note #${index + 1}</span>
                     </div>`;
@@ -154,6 +154,22 @@ function displayNotes() {
         });
 }
 
+// Add this function before the displayNotes function
+function truncateText(text, maxLength) {
+    if (text.length <= maxLength) return text;
+    
+    // Find the last space before maxLength
+    let truncated = text.substr(0, maxLength);
+    let lastSpace = truncated.lastIndexOf(' ');
+    
+    // If we found a space, cut at that point and add ellipsis
+    if (lastSpace !== -1) {
+        return truncated.substr(0, lastSpace) + '...';
+    }
+    
+    // If no space found, just cut at maxLength and add ellipsis
+    return truncated + '...';
+}
 
 loadNotes = new Promise((resolve, reject) => {});
 

@@ -123,6 +123,11 @@ body {
   padding: 0.5rem;
   margin: 0;
   color: var(--light);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-height: 4.5em;
+  overflow: hidden;
 }
 
 .note-footer {
@@ -140,7 +145,8 @@ body {
   border: 3pt solid var(--secondary);
   border-radius: 8px;
   padding: 0;
-  max-width: 300px;
+  max-width: 400px;
+  width: 90%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -180,6 +186,14 @@ body {
 .popover-content {
     padding: 1rem;
     color: var(--light);
+}
+
+.popover-content p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+    margin-bottom: 1rem;
 }
 
 .note-meta {

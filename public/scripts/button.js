@@ -36,6 +36,11 @@ async function userClick() {
         return;
     }
 
+    if (title.length > 20) {
+        alert('Title must be 20 characters or less');
+        return;
+    }
+
     try {
         // Create a new note in Firestore
         const user = firebase.auth().currentUser;
