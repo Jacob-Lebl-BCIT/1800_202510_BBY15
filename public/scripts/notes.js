@@ -45,7 +45,7 @@ function insertNavBar() {
             console.error("Error loading navigation:", error);
         });
 }
-
+// Collection paramater is unused
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("noteCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable.     
     const notesContainer = document.getElementById("notes-container");
@@ -57,6 +57,7 @@ function displayCardsDynamically(collection) {
     notesContainerElement.classList.add("row-cols-md-3");
     notesContainerElement.classList.add("g-4");
     
+    // Prolly supposed to use collection paramater
     const notesSnapshot = db.collection("users").doc(user.uid).collection("notes").orderBy("timestamp", "desc").get()
         .then(allNotes => {
             var i = 1;  

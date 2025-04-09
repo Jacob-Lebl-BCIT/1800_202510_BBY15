@@ -10,6 +10,7 @@ const fs = require("fs");
 // Static file serving
 app.use("/", express.static("./public"));
 app.use("/scripts", express.static("./scripts"));
+app.use("/land", express.static("./public/pages/landingpage.html"));
 
 // Route handler for login page
 app.get("/login", (req, res) => {

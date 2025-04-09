@@ -23,6 +23,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
             } else {
                 // No user is signed in.
                 console.log("No user is signed in");
+                // Redirect to login page or show a message
+                if (!window.location.pathname.endsWith("/land") && !window.location.pathname.endsWith("/login")) {
+                window.location.href = "/land";
+                }
+
                 // window.location.href = "/login";
             }
         });
@@ -107,6 +112,7 @@ function displayNotes() {
                 const noteElement = document.createElement("div");
                 noteElement.className = "note";
                 noteElement.id = "note-" + index;
+                // Body of the note
                 noteElement.innerHTML = `
                     <div class="note-header">
                         <h3>${note.title}</h3>

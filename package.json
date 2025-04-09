@@ -17,7 +17,7 @@
   "scripts": {
     "Start": "node index.js",
     "devStart": "nodemon index.js",
-    "dev": "concurrently \"nodemon index.js\" \"browser-sync start --proxy localhost:8000 --files '*.html, *.css' --no-ui --no-notify\""
+    "dev": "concurrently \"nodemon index.js\" \"browser-sync start --proxy localhost:8000 --files '*.html, *.css' --port 3050 --no-ui --no-notify\""
   },
   "dependencies": {
     "dotenv": "^16.4.7",
