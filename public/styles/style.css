@@ -183,6 +183,13 @@ body {
     color: var(--secondary);
 }
 
+#footer {
+  position: fixed;
+  width: 100%;
+  height: 35px;
+  bottom: 0;
+}
+
 /* Animation for popover */
 @keyframes popoverFadeIn {
     from {
