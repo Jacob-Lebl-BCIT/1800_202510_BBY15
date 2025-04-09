@@ -3,6 +3,7 @@
 const express = require("express");
 const app = express();
 app.use(express.json());
+const PORT = process.env.PORT || 8000;
 
 // File system for reading HTML files
 const fs = require("fs");
@@ -19,4 +20,4 @@ app.get("/login", (req, res) => {
 })
 
 // Start server on port 8000
-app.listen(8000);
+app.listen(PORT);
