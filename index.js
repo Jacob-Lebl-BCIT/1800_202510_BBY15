@@ -12,6 +12,8 @@ const fs = require("fs");
 app.use("/", express.static("./public"));
 app.use("/scripts", express.static("./scripts"));
 app.use("/land", express.static("./public/pages/landingpage.html"));
+// images
+app.use("/images", express.static("./images"));
 
 // Route handler for login page
 app.get("/login", (req, res) => {
